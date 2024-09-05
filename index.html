@@ -170,6 +170,27 @@
             <textarea name="message" placeholder="Why do you want to join?" required></textarea>
             <button type="submit">Submit</button>
         </form>
+  </section>
+<!-- Include the EmailJS script -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    (function() {
+        emailjs.init('YOUR_USER_ID'); // Replace with your EmailJS user ID
+    })();
+
+    // Add an event listener for the form submission
+    document.getElementById('join-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Send the form data using EmailJS
+        emailjs.sendForm('service_mr9fojs', 'template_8ra5ch7', this)
+            .then(function() {
+                alert('Your form has been submitted successfully!');
+            }, function(error) {
+                alert('Oops! Something went wrong. Please try again.');
+            });
+    });
+</script>
     </section>
 
     <!-- Contact Section -->
