@@ -42,6 +42,7 @@
 
         section {
             padding: 20px;
+            display: none;
         }
 
         footer {
@@ -117,7 +118,7 @@
     </style>
 </head>
 
-<body>
+<body onload="showSection('home')">
 
     <header>
         <h1>BuHa Fishers Club</h1>
@@ -126,24 +127,24 @@
     </header>
 
     <nav>
-        <!-- Add the links for each section or external URL here -->
-        <a href="about.html">Home</a> <!-- Link to a separate About Us page -->
-        <a href="#gallery">About</a> <!-- Link to the gallery section -->
-        <a href="projects.html">Projects</a> <!-- Link to the projects page -->
-        <a href="events.html">Events</a> <!-- Link to the empty events page -->
-        <a href="#get-involved">Get Involved</a> <!-- Link to the form section -->
-        <a href="#contact">Contact</a> <!-- Link to contact section -->
+        <a href="javascript:void(0)" onclick="showSection('home')">Home</a>
+        <a href="javascript:void(0)" onclick="showSection('about')">About</a>
+        <a href="javascript:void(0)" onclick="showSection('projects')">Projects</a>
+        <a href="javascript:void(0)" onclick="showSection('get-involved')">Get Involved</a>
+        <a href="javascript:void(0)" onclick="showSection('contact')">Contact</a>
     </nav>
 
-    <!-- Home Page (about.html) will have the about us info only -->
+    <!-- Home Section -->
+    <section id="home">
+        <h2>Welcome to BuHa Fishers Club</h2>
+        <p>The BuHa Fishers Club focuses on research and community outreach related to fish populations in the BuHa area. We are committed to sustainable fishing practices and the protection of aquatic ecosystems.</p>
+    </section>
+
+    <!-- About Section -->
     <section id="about">
         <h2>About Us</h2>
         <p>The BuHa Fishers Club focuses on research and community outreach related to fish populations in the BuHa area.
             We are committed to sustainable fishing practices and the protection of aquatic ecosystems.</p>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery">
         <h2>Gallery</h2>
         <div class="gallery">
             <img src="images/fish1.jpg" alt="Fish Image 1">
@@ -155,14 +156,8 @@
     <!-- Projects Section -->
     <section id="projects">
         <h2>Our Projects</h2>
-        <p>World Fish Migration Day Event: <a href="https://worldfishmigrationday.com/?s=Buha+FIshers" target="_blank">Link to Project</a></p>
-        <p>Splash into Rivers Event: <a href="https://ndabaonline.ukzn.ac.za/UkzndabaStory/Vol12-Issue16/Community%20Celebrates%20World%20Fish%20Migration%20Day%20with%20Splash%20into%20Rivers%20Event/" target="_blank">Link to Event</a></p>
-    </section>
-
-    <!-- Empty Events Section -->
-    <section id="events">
-        <h2>Upcoming Events</h2>
-        <p>We currently do not have any upcoming events. Stay tuned!</p>
+        <p>World Fish Migration Day Event: <a href="https://worldfishmigrationday.com/?s=Buha+FIshers" target="_blank">Project Link</a></p>
+        <p>Splash into Rivers Event: <a href="https://ndabaonline.ukzn.ac.za/UkzndabaStory/Vol12-Issue16/Community%20Celebrates%20World%20Fish%20Migration%20Day%20with%20Splash%20into%20Rivers%20Event/" target="_blank">Event Link</a></p>
     </section>
 
     <!-- Get Involved Section -->
@@ -177,15 +172,7 @@
         </form>
     </section>
 
-    <section id="partners">
-        <h2>Our Sponsors & Partners</h2>
-        <div class="partners">
-            <img src="images/partner1-logo.png" alt="Partner 1 Logo">
-            <img src="images/partner2-logo.png" alt="Partner 2 Logo">
-            <img src="images/partner3-logo.png" alt="Partner 3 Logo">
-        </div>
-    </section>
-
+    <!-- Contact Section -->
     <section id="contact">
         <h2>Contact Us</h2>
         <div class="contact-buttons">
@@ -198,6 +185,17 @@
         <p>Contact us: buhafishers@gmail.com</p>
         <p>&copy; 2024 BuHa Fishers Club. All rights reserved.</p>
     </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+            // Show the selected section
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    </script>
 
 </body>
 
