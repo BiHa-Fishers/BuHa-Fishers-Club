@@ -86,6 +86,34 @@
             text-align: center;
             padding: 20px;
         }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        form input,
+        form textarea {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        form button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 
@@ -98,21 +126,23 @@
     </header>
 
     <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Projects</a>
-        <a href="#">Events</a>
-        <a href="#">Get Involved</a>
-        <a href="#contact">Contact</a>
+        <!-- Add the links for each section or external URL here -->
+        <a href="about.html">Home</a> <!-- Link to a separate About Us page -->
+        <a href="#gallery">About</a> <!-- Link to the gallery section -->
+        <a href="projects.html">Projects</a> <!-- Link to the projects page -->
+        <a href="events.html">Events</a> <!-- Link to the empty events page -->
+        <a href="#get-involved">Get Involved</a> <!-- Link to the form section -->
+        <a href="#contact">Contact</a> <!-- Link to contact section -->
     </nav>
 
+    <!-- Home Page (about.html) will have the about us info only -->
     <section id="about">
         <h2>About Us</h2>
         <p>The BuHa Fishers Club focuses on research and community outreach related to fish populations in the BuHa area.
             We are committed to sustainable fishing practices and the protection of aquatic ecosystems.</p>
     </section>
 
-    <!-- New Gallery Section -->
+    <!-- Gallery Section -->
     <section id="gallery">
         <h2>Gallery</h2>
         <div class="gallery">
@@ -122,22 +152,31 @@
         </div>
     </section>
 
+    <!-- Projects Section -->
     <section id="projects">
         <h2>Our Projects</h2>
-        <p>Learn more about our ongoing research and community initiatives.</p>
+        <p>World Fish Migration Day Event: <a href="https://worldfishmigrationday.com/?s=Buha+FIshers" target="_blank">Link to Project</a></p>
+        <p>Splash into Rivers Event: <a href="https://ndabaonline.ukzn.ac.za/UkzndabaStory/Vol12-Issue16/Community%20Celebrates%20World%20Fish%20Migration%20Day%20with%20Splash%20into%20Rivers%20Event/" target="_blank">Link to Event</a></p>
     </section>
 
+    <!-- Empty Events Section -->
     <section id="events">
         <h2>Upcoming Events</h2>
-        <p>Stay tuned for our upcoming events and activities.</p>
+        <p>We currently do not have any upcoming events. Stay tuned!</p>
     </section>
 
+    <!-- Get Involved Section -->
     <section id="get-involved">
         <h2>Get Involved</h2>
-        <p>Join us in making a difference! Become a member, volunteer, or donate to support our work.</p>
+        <form action="#" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="tel" name="phone" placeholder="Your Phone Number">
+            <textarea name="message" placeholder="Why do you want to join?" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
     </section>
 
-    <!-- New Partners Section -->
     <section id="partners">
         <h2>Our Sponsors & Partners</h2>
         <div class="partners">
