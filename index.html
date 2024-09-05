@@ -53,41 +53,6 @@
             margin-top: 20px;
         }
 
-        .contact-buttons a {
-            display: inline-block;
-            margin: 5px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        .contact-buttons a:hover {
-            background-color: #45a049;
-        }
-
-        .gallery img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            margin: 10px;
-            border-radius: 10px;
-        }
-
-        .partners img {
-            width: 100%;
-            max-width: 150px;
-            margin: 20px;
-            height: auto;
-            border-radius: 5px;
-        }
-
-        .partners {
-            text-align: center;
-            padding: 20px;
-        }
-
         form {
             display: flex;
             flex-direction: column;
@@ -163,35 +128,35 @@
     <!-- Get Involved Section -->
     <section id="get-involved">
         <h2>Get Involved</h2>
-        <form action="#" method="post">
+        <form id="join-form">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <input type="tel" name="phone" placeholder="Your Phone Number">
             <textarea name="message" placeholder="Why do you want to join?" required></textarea>
             <button type="submit">Submit</button>
         </form>
-  </section>
-<!-- Include the EmailJS script -->
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-<script>
-    (function() {
-        emailjs.init('YOUR_USER_ID'); // Replace with your EmailJS user ID
-    })();
-
-    // Add an event listener for the form submission
-    document.getElementById('join-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        // Send the form data using EmailJS
-        emailjs.sendForm('service_mr9fojs', 'template_8ra5ch7', this)
-            .then(function() {
-                alert('Your form has been submitted successfully!');
-            }, function(error) {
-                alert('Oops! Something went wrong. Please try again.');
-            });
-    });
-</script>
     </section>
+
+    <!-- Include the EmailJS script -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init('YOUR_USER_ID'); // Replace with your actual user ID from EmailJS
+        })();
+
+        // Add an event listener for the form submission
+        document.getElementById('join-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+
+            emailjs.sendForm('service_mr9fojs', 'template_8ra5ch7', this)
+                .then(function(response) {
+                    alert('Your form has been submitted successfully!');
+                }, function(error) {
+                    console.error('FAILED...', error);
+                    alert('Oops! Something went wrong. Please try again.');
+                });
+        });
+    </script>
 
     <!-- Contact Section -->
     <section id="contact">
